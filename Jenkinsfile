@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Yi Qu - Build Docker Image') {
             steps {
-                sh 'docker build -t yiqu11/yiqu_app .'
+                sh "docker build -t yiqu ."
             }
         }
         stage("Yi Qu - Login to Dockerhub"){
@@ -16,10 +16,9 @@ pipeline {
         }
         stage("Yi Qu - Push image to Dockerhub"){
             steps {
-                sh 'docker push yiqu_app'
+                sh 'docker push yiqu11/yiqu_app'
                 sh "python3 --version"
-		            sh "python3 ppfile.py"
-                sh 'docker push yiqu_app'
+		            sh "python3 yiqu.py"
             }
         }
     }
