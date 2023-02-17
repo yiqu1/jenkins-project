@@ -1,9 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage("Yi Qu - Build Docker Image"){
+        stage('Declarative: Checkout SCM') {
             steps {
-                sh "docker build -t yiqu1/yiqu_app ."
+                checkout scm
+            }
+        }
+        stage('Yi Qu - Build Docker Image') {
+            steps {
+                sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
+                sh 'sh get-docker.sh'
+                sh 'docker build -t yiqu1/yiqu_app .'
             }
         }
         stage("Yi Qu - Login to Dockerhub"){
