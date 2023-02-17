@@ -1,4 +1,4 @@
 FROM python:3
-WORKDIR /app
-COPY yiqu.py .
-CMD [ "python", "yiqu.py" ]
+ADD yiqu.py /
+RUN pip install pystrich
+CMD [ "python", "./yiqu.py" ]

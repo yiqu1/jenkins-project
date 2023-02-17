@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Yi Qu - Build Docker Image"){
 	    steps {
-		sh "docker build ."
+		sh "docker build -t='yiqu_app' ."
 	    }
 	}
 	stage("Yi Qu - Login to Dockerhub"){
