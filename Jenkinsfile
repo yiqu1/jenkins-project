@@ -3,8 +3,7 @@ pipeline {
     stages {
         stage("Yi Qu - Build Docker Image"){
             steps {
-                sh 'apt-get update'
-                sh "apt-get -y install docker.io"
+                sh 'docker --version'
                 sh 'docker build -t yiqu_app .'
             }
         }
