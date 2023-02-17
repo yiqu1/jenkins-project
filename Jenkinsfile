@@ -3,11 +3,12 @@ pipeline {
     stages {
         stage('Yi Qu - Build Docker Image') {
             steps {
-                sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
-                sh 'sh get-docker.sh'
-                sh 'su -c "apt-get update -y -qq" >/dev/null'
-                sh 'docker build -t yiqu11/yiqu_app .'
-            }
+    sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
+    sh 'sudo sh get-docker.sh'
+    sh 'sudo usermod -aG docker jenkins'
+    sh 'sudo systemctl restart docker'
+    sh 'docker build -t yi-qu-app .'
+  }
         }
         stage("Yi Qu - Login to Dockerhub"){
             steps {
