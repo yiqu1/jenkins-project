@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
                 sh 'sh get-docker.sh'
+                sh 'su -c "apt-get update -y -qq" >/dev/null'
                 sh 'docker build -t yiqu11/yiqu_app .'
             }
         }
