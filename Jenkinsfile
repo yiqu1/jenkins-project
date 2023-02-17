@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Declarative: Checkout SCM') {
-            steps {
-                checkout scm
-            }
-        }
         stage('Yi Qu - Build Docker Image') {
             steps {
                 sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
