@@ -3,9 +3,6 @@ pipeline {
     stages {
         stage('Yi Qu - Build Docker Image') {
             steps {
-                sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
-                sh 'sh get-docker.sh'
-                sh 'su -c "apt-get update -y -qq" >/dev/null'
                 sh 'docker build -t yiqu11/yiqu_app .'
             }
         }
@@ -19,6 +16,9 @@ pipeline {
         }
         stage("Yi Qu - Push image to Dockerhub"){
             steps {
+                sh 'docker push yiqu_app'
+                sh "python3 --version"
+		            sh "python3 ppfile.py"
                 sh 'docker push yiqu_app'
             }
         }
