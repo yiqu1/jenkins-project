@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Yi Qu - Build Docker Image') {
             steps {
-                sh "docler --version"
+                sh "docker --version"
                 sh "docker build -t yiqu11/yiqu ."
             }
         }
