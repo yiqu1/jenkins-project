@@ -3,10 +3,6 @@ pipeline {
     stages {
         stage('Yi Qu - Build Docker Image') {
             steps {
-    sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
-    sh 'sudo sh get-docker.sh'
-    sh 'sudo usermod -aG docker jenkins'
-    sh 'sudo systemctl restart docker'
     sh 'docker build -t yi-qu-app .'
   }
         }
