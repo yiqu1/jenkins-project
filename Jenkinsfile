@@ -15,9 +15,10 @@ pipeline {
         }
         stage("Yi Qu - Login to Dockerhub"){
             steps {
-                withCredentials([string(credentialsId: 'yiqu1', variable: 'dockerhubpwd')]) {
-                    sh "docker login -u yiqu1 -p ${dockerhubpwd}"
-                }
+                withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+    // some block
+		            sh 'docker login -u yiqu11 -p ${dockerhubpwd}'
+}
             }
         }
         stage("Yi Qu - Push image to Dockerhub"){
